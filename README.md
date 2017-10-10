@@ -1,6 +1,6 @@
 # README #
 
-This README would normally document whatever steps are necessary to get your application up and running.
+This README will guide you through the steps to be follow in order to set up and run the Smart Tools project.
 
 ### What is this repository for? ###
 
