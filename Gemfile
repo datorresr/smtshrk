@@ -5,7 +5,6 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.3'
 # Use mysql as the database for Active Record
@@ -46,6 +45,7 @@ gem 'sidetiq', github: 'sfroehler/sidetiq', branch: 'celluloid-0-17-compatibilit
 gem 'jwplayer-rails', :git => 'https://github.com/dutgriff/jwplayer-rails.git'
 gem 'jquery-rails'
 #gem 'rdoc'
+gem 'fog',                     '1.40.0'
 
 gem 'aws-sdk', '~> 2'
 
