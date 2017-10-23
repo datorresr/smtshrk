@@ -8,7 +8,7 @@
     <%= image_tag concurso.imagen.url if concurso.imagen? %>
   </span>
   <span class="timestamp">
-    Creado hace <%= time_ago_in_words(concurso.created_at) %>.
+
     <% if current_user?(concurso.usuario) %>
       <%= link_to "editar", concurso, method: :edit %>
 

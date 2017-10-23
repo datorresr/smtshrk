@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'save_data/index'
+
   get 'videos/new'
 
   get 'sesiones/new'

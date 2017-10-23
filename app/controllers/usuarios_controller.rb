@@ -6,7 +6,25 @@ class UsuariosController < ApplicationController
   before_action :admin_user, only: :destroy
   def show
     @usuario = Usuario.find(params[:id])
-    @concursos = @usuario.concursos.paginate(page: params[:page])
+    puts 'showAct'
+    puts @usuario.id
+    concursos = []
+    items = Aws.get_concursos_por_usuario(@usuario.id)
+    items.each { |item|
+        info = item['concurso_info']
+        concurso = Hash.new
+        concurso[:nombre] = info['nombre']
+        concurso[:fechaInicio] = info['fecha_inicio']
+        concurso[:fechaFin] = info['fecha_fin']
+        concurso[:descripcion] = info['descripcion']
+        concurso[:imagen] = info['imagen']
+        concurso[:id] = Integer(item['concurso_id'])
+        concurso[:usuario_id] = @usuario.id
+        puts concurso
+        @concurso = Concurso.new(concurso)
+        concursos.push(@concurso)
+    }
+    @concursos = concursos
   end
 
   def index

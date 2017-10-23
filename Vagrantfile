@@ -12,7 +12,6 @@ Vagrant.configure("2") do |config|
 		ruby.vm.network "forwarded_port", guest: 3000, host: 3000,
   			auto_correct: true
   	ruby.vm.network "private_network", type: "dhcp"
-    #ruby.vm.synced_folder ".", "/home/vagrant/sync", disabled: true
     #ruby.vm.provision "chef_solo" do |chef|
     #  chef.cookbooks_path = ["site-cookbooks"]
     #  chef.add_recipe "rails-stack"
@@ -23,7 +22,6 @@ Vagrant.configure("2") do |config|
 	config.vm.define "db" do |db|
 		db.vm.box = "bento/centos-7.3"
     db.vm.network "private_network", type: "dhcp"
-    #db.vm.synced_folder ".", "/home/vagrant/sync", disabled: true
     #db.vm.provision "chef_solo" do |chef|
     #  chef.cookbooks_path = ["site-cookbooks"]
     #  chef.add_recipe "mariadb"

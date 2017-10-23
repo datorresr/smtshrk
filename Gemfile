@@ -45,9 +45,8 @@ gem 'sidetiq', github: 'sfroehler/sidetiq', branch: 'celluloid-0-17-compatibilit
 gem 'jwplayer-rails', :git => 'https://github.com/dutgriff/jwplayer-rails.git'
 gem 'jquery-rails'
 #gem 'rdoc'
-gem 'fog',                     '1.40.0'
 
-gem 'aws-sdk', '~> 2'
+gem 'aws-sdk', '~> 3'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

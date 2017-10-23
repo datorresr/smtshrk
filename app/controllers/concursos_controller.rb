@@ -12,8 +12,26 @@ class ConcursosController < ApplicationController
   end
 
   def create
-    @concurso = current_user.concursos.build(concurso_params)
-    if @concurso.save
+    @concurso = Concurso.new(concurso_params)
+    concurso_id = DateTime.now.to_time.to_i
+    nombre  = concurso_params['nombre']
+    fecha_inicio = concurso_params['fechaInicio']
+    fecha_fin = concurso_params['fechaFin']
+    descripcion = concurso_params['descripcion']
+    usuario_id = current_user.id
+
+    aws_params = Hash.new
+    aws_params[:concurso_id] = concurso_id
+    aws_params[:usuario_id] = usuario_id
+    aws_params[:custom_fields]    = {
+        'nombre'    => nombre,
+        'fecha_inicio'   => fecha_inicio,
+        'fecha_fin' => fecha_fin,
+        'descripcion' => descripcion,
+        'imagen' => @concurso.imagen.file.filename
+    }
+    @concurso.save
+    if Aws.save_concurso_to_db(aws_params)
       flash[:success] = "Concurso Creado!"
       redirect_to root_url
     else
