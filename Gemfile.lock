@@ -544,6 +544,9 @@ GEM
     concurrent-ruby (1.0.5)
     connection_pool (2.2.1)
     crass (1.0.2)
+    dalli (2.7.6)
+    dalli-elasticache (0.2.0)
+      dalli (>= 1.0.0)
     erubi (1.6.1)
     excon (0.59.0)
     execjs (2.7.0)
@@ -845,6 +848,8 @@ DEPENDENCIES
   capybara (~> 2.13)
   carrierwave (= 1.1.0)
   coffee-rails (~> 4.2)
+  dalli
+  dalli-elasticache
   faker (= 1.7.3)
   fog (= 1.40.0)
   jbuilder (~> 2.5)
