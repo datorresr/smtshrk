@@ -26,4 +26,4 @@ This README will guide you through the steps to be follow in order to set up and
 ### Who do I talk to? ###
 
 * Repo owner or admin
-* Other community or team contact
+* Other community or team contact# smtshrk
