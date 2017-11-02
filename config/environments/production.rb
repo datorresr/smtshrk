@@ -51,11 +51,12 @@ Rails.application.configure do
 
   # Use a different cache store in production.
   # config.cache_store = :mem_cache_store
-
-  endpoint    = "elasticache-smts.coyoqj.cfg.use1.cache.amazonaws.com:11211"
-  elasticache = Dalli::ElastiCache.new(endpoint)
-  config.cache_store = :dalli_store, elasticache.servers, {:expires_in => 1.day, :compress => true}
-  config.action_controller.perform_caching = true
+  config.action_controller.perform_caching = false
+  config.cache_store = :null_store
+  #endpoint    = "elasticache-smts.coyoqj.cfg.use1.cache.amazonaws.com:11211"
+  #elasticache = Dalli::ElastiCache.new(endpoint)
+  #config.cache_store = :dalli_store, elasticache.servers, {:expires_in => 1.day, :compress => true}
+  #config.action_controller.perform_caching = true
 
 
 
