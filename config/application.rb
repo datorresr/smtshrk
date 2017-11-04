@@ -6,6 +6,15 @@ require 'rails/all'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
+config.paperclip_defaults = {
+      :storage => :s3,
+      :s3_region => ENV['AWS_REGION'],
+      :s3_credentials => {
+        :bucket => ENV['S3_BUCKET'],
+        :access_key_id => ENV['S3_KEY'],
+        :secret_access_key => ENV['S3_SECRET']
+}
+
 module Vagrant
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
